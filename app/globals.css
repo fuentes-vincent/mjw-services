@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design system: the columnar book.
+ *
+ * Palette is sampled from the MJW logo mark (navy #14375F, graphite #4C4C4C)
+ * and set on the pale green-buff paper of a columnar accounting ledger.
+ * Red is reserved for what accounting itself uses red for — the margin rule
+ * and anything overdue or negative. It is never decorative.
+ */
+@theme {
+  --color-navy: #14375f; /* logo primary — headings, buttons, figures */
+  --color-navy-deep: #0b2140; /* footer, deep fields */
+  --color-navy-soft: #2c5387; /* hover, secondary fills */
+  --color-graphite: #4c4c4c; /* logo secondary — body text */
+  --color-ink: #16202b; /* cool near-black for headings */
+  --color-paper: #eef1ea; /* columnar-book page — section bands */
+  --color-paper-deep: #e3e8dc; /* nested surfaces */
+  --color-rule: #cbd5c4; /* ledger hairlines */
+  --color-red: #b32b1e; /* margin rule, deadlines, "in the red" */
+
+  /* Fluid type — one scale, no per-breakpoint overrides needed */
+  --text-hero: clamp(2.5rem, 1.7rem + 3.2vw, 3.75rem);
+  --text-h2: clamp(1.875rem, 1.4rem + 2.4vw, 3rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-lede: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem);
+
+  /* Two radii only — a ledger sheet does not want blobby corners */
+  --radius-field: 0.5rem; /* inputs, icon tiles */
+  --radius-card: 0.875rem; /* cards, panels */
 }
 
+/* Fonts arrive as CSS variables from next/font, so they inline rather than
+   round-trip through another custom property. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-newsreader);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-spline-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-graphite);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Nothing in the codebase had a focus style before this. */
+  :focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Vertical rhythm. Every section used a flat py-20 regardless of viewport;
+   this scales the band with the screen instead. */
+@utility section {
+  padding-block: clamp(4rem, 3rem + 5vw, 8rem);
+}
+
+@utility section-tight {
+  padding-block: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+}
+
+/* Money columns must align digit-for-digit. */
+@utility figures {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* The condensed uppercase register of a form field label, via Archivo's
+   width axis. Used for eyebrows, column heads, and cadence tags. */
+@utility label-xs {
+  font-stretch: 84%;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@utility label-sm {
+  font-stretch: 84%;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* The accounting convention for a total: two hairlines, not one. */
+@utility rule-double {
+  border-top: 3px double var(--color-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Gentle looping motion for illustration elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Ledger entries posting to the sheet, one after another. */
+@keyframes post-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-float,
+  .anim-float-slow,
+  .anim-sway {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .anim-float {
+    animation: float 4.5s ease-in-out infinite;
+  }
+  .anim-float-slow {
+    animation: float 6.5s ease-in-out infinite;
+  }
+  .anim-sway {
+    animation: sway 5s ease-in-out infinite;
+  }
+  .anim-blink {
+    animation: blink 1.6s ease-in-out infinite;
+  }
+  .anim-delay-1 {
+    animation-delay: 0.8s;
+  }
+  .anim-delay-2 {
+    animation-delay: 1.6s;
+  }
+
+  .anim-post {
+    opacity: 0;
+    animation: post-in 0.44s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }
