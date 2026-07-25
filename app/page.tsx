@@ -90,11 +90,16 @@ export default function Home() {
           <Reveal>
             <dl className="grid gap-8 sm:grid-cols-3 sm:gap-0">
               {STATS.map((stat, index) => (
+                /* Padding on both sides of every divider, so a column's
+                   footing rule never runs into the next column's border. */
                 <div
                   key={stat.label}
-                  className={
-                    index > 0 ? "sm:border-l sm:border-rule sm:pl-8" : "sm:pr-8"
-                  }
+                  className={[
+                    index > 0 && "sm:border-l sm:border-rule sm:pl-8",
+                    index < STATS.length - 1 && "sm:pr-8",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
                 >
                   <dt className="figures rule-double pt-2.5 text-3xl leading-none text-navy">
                     {stat.value}
