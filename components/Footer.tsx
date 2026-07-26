@@ -25,7 +25,8 @@ export default function Footer() {
           </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
             Reliable bookkeeping, tax, payroll, and financial reporting support
-            for small businesses in Cebu, Philippines and beyond.
+            for small businesses worldwide, from our home base in Cebu,
+            Philippines.
           </p>
         </div>
 

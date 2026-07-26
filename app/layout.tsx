@@ -20,7 +20,7 @@ const archivo = Archivo({
   axes: ["wdth"],
 });
 
-/* Every peso amount, stat, and ledger column. */
+/* Every dollar amount, stat, and ledger column. */
 const splineSansMono = Spline_Sans_Mono({
   variable: "--font-spline-mono",
   subsets: ["latin"],
@@ -28,7 +28,7 @@ const splineSansMono = Spline_Sans_Mono({
 
 const SITE_URL = "https://mjwbookkeeping.com";
 const DESCRIPTION =
-  "Bookkeeping, tax preparation, payroll, and financial reporting for small businesses in Cebu, Philippines. BIR, SSS, PhilHealth, and Pag-IBIG compliance handled on time.";
+  "Bookkeeping, tax preparation, payroll, and financial reporting for small businesses worldwide. Tax filings, payroll compliance, and statutory remittances handled accurately and on time — from our home base in Cebu, Philippines.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   openGraph: {
     type: "website",
-    locale: "en_PH",
+    locale: "en_US",
     url: SITE_URL,
     siteName: "MJW Bookkeeping and Accounting Services",
     title: "MJW Bookkeeping and Accounting Services",

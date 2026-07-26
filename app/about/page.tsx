@@ -9,7 +9,7 @@ import { Check } from "@/components/icons";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "MJW Bookkeeping and Accounting Services, founded by Mary Jade B. Velasco and based in Cebu, Philippines.",
+    "MJW Bookkeeping and Accounting Services, founded by Mary Jade B. Velasco — based in Cebu, Philippines and serving clients worldwide.",
 };
 
 const VALUES = [
@@ -43,7 +43,7 @@ export default function AboutPage() {
                 <em className="font-normal">personal service</em>
               </>
             }
-            subtitle="MJW Bookkeeping and Accounting Services was founded to give small businesses in Cebu the same financial clarity that larger companies enjoy."
+            subtitle="MJW Bookkeeping and Accounting Services was founded to give small businesses everywhere the same financial clarity that larger companies enjoy."
           />
         </Container>
       </section>
@@ -56,13 +56,13 @@ export default function AboutPage() {
             </h2>
             <p className="mt-5 leading-relaxed text-graphite">
               MJW Bookkeeping and Accounting Services was founded by Mary Jade
-              B. Velasco with a simple goal: help small business owners in Cebu
-              spend less time worrying about their books and more time growing
-              their business.
+              B. Velasco with a simple goal: help small business owners spend
+              less time worrying about their books and more time growing their
+              business.
             </p>
             <p className="mt-4 leading-relaxed text-graphite">
               What started as hands-on bookkeeping support for a handful of
-              local businesses has grown into a full-service practice covering
+              businesses has grown into an international practice covering
               bookkeeping, tax preparation, payroll, and financial reporting —
               always delivered with the same close attention every client
               started with.

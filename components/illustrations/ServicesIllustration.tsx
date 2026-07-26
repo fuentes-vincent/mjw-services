@@ -76,7 +76,7 @@ export default function ServicesIllustration({
         <ellipse cx="150" cy="310" rx="19" ry="6" className="fill-white/50" />
         <circle cx="212" cy="330" r="16" className="fill-navy" />
         <text x="212" y="336" textAnchor="middle" fontSize="16" fontWeight="700" className="fill-white">
-          ₱
+          $
         </text>
       </g>
     </svg>

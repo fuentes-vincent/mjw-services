@@ -21,20 +21,20 @@ type Entry = {
 };
 
 const ENTRIES: Entry[] = [
-  { account: "Cash in Bank", debit: 428150 },
-  { account: "Accounts Receivable", short: "Receivables", debit: 196400 },
-  { account: "Sales", credit: 742600 },
-  { account: "Rent Expense", debit: 96000 },
-  { account: "Salaries & Wages", short: "Salaries", debit: 182885 },
+  { account: "Cash in Bank", debit: 42150 },
+  { account: "Accounts Receivable", short: "Receivables", debit: 19640 },
+  { account: "Sales", credit: 74100 },
+  { account: "Rent Expense", debit: 9600 },
+  { account: "Salaries & Wages", short: "Salaries", debit: 18420 },
   {
-    account: "SSS / PhilHealth / Pag-IBIG",
-    short: "SSS / PhilHealth",
-    credit: 48265,
+    account: "Payroll Taxes Payable",
+    short: "Payroll Taxes",
+    credit: 4530,
   },
-  { account: "Accounts Payable", short: "Payables", credit: 112570 },
+  { account: "Accounts Payable", short: "Payables", credit: 11180 },
 ];
 
-const peso = new Intl.NumberFormat("en-PH", {
+const usd = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
@@ -62,17 +62,17 @@ export default function TrialBalance({ className = "" }: { className?: string })
           <div className="anim-post">
             <p className="label-xs text-red">Trial Balance</p>
             <p className="mt-1.5 font-display text-lg leading-snug text-navy sm:text-xl">
-              Dalisay Trading
+              Harbor & Main Trading
             </p>
             <p className="figures mt-0.5 text-[11px] text-graphite/70">
-              For the month ended 30 June 2026
+              For the month ended June 30, 2026
             </p>
           </div>
 
           <table className="mt-5 w-full border-collapse text-left">
             <caption className="sr-only">
-              Trial balance for the month ended 30 June 2026. Total debits equal
-              total credits at ₱{peso.format(TOTAL_DEBIT)}.
+              Trial balance for the month ended June 30, 2026. Total debits
+              equal total credits at ${usd.format(TOTAL_DEBIT)}.
             </caption>
             <thead>
               <tr className="anim-post" style={{ animationDelay: `${FIRST_ROW_DELAY - 60}ms` }}>
@@ -108,10 +108,10 @@ export default function TrialBalance({ className = "" }: { className?: string })
                     )}
                   </th>
                   <td className="figures py-[7px] pl-2 text-right text-[11px] text-navy sm:text-[12.5px]">
-                    {entry.debit ? peso.format(entry.debit) : ""}
+                    {entry.debit ? usd.format(entry.debit) : ""}
                   </td>
                   <td className="figures py-[7px] pl-2 text-right text-[11px] text-navy sm:text-[12.5px]">
-                    {entry.credit ? peso.format(entry.credit) : ""}
+                    {entry.credit ? usd.format(entry.credit) : ""}
                   </td>
                 </tr>
               ))}
@@ -126,10 +126,10 @@ export default function TrialBalance({ className = "" }: { className?: string })
                   Total
                 </th>
                 <td className="figures pl-2 pt-2.5 text-right text-[11.5px] font-semibold text-navy sm:text-[13.5px]">
-                  ₱{peso.format(TOTAL_DEBIT)}
+                  ${usd.format(TOTAL_DEBIT)}
                 </td>
                 <td className="figures pl-2 pt-2.5 text-right text-[11.5px] font-semibold text-navy sm:text-[13.5px]">
-                  ₱{peso.format(TOTAL_CREDIT)}
+                  ${usd.format(TOTAL_CREDIT)}
                 </td>
               </tr>
             </tfoot>

@@ -13,7 +13,7 @@ import { testimonials } from "@/lib/testimonials";
 
 const STATS = [
   { value: "10+", label: "Years of combined experience" },
-  { value: "100%", label: "BIR-compliant filings" },
+  { value: "100%", label: "On-time, compliant filings" },
   { value: "24/7", label: "Access to your financial records" },
 ];
 
@@ -24,9 +24,9 @@ const WHY_US = [
       "Every entry is reconciled and double-checked, so your numbers are always something you can trust.",
   },
   {
-    title: "Grounded in Cebu",
+    title: "Local roots, global reach",
     description:
-      "We work with Philippine tax rules every day — BIR deadlines, SSS, PhilHealth, and Pag-IBIG remittances included.",
+      "Based in Cebu and working with clients worldwide, we stay on top of your tax deadlines, statutory contributions, and filings wherever you operate.",
   },
   {
     title: "You talk to your bookkeeper",
@@ -44,7 +44,7 @@ export default function Home() {
           <div>
             <p className="flex items-center gap-2.5">
               <span aria-hidden className="h-px w-6 bg-red" />
-              <span className="label-sm text-red">Bookkeeping in Cebu</span>
+              <span className="label-sm text-red">Bookkeeping, worldwide</span>
             </p>
 
             <h1 className="mt-5 text-balance font-display text-hero font-medium leading-[1.02] tracking-tight text-navy">
@@ -53,9 +53,10 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 max-w-lg text-lede leading-relaxed text-graphite">
-              MJW Bookkeeping and Accounting Services keeps small businesses in
-              Cebu organised, compliant, and confident about their finances — so
-              you can get back to running the business.
+              MJW Bookkeeping and Accounting Services keeps small businesses
+              organized, compliant, and confident about their finances —
+              wherever you are in the world — so you can get back to running
+              the business.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -84,7 +85,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Stats, set as a ledger footing rather than three centred blocks. */}
+      {/* Stats, set as a ledger footing rather than three centered blocks. */}
       <section className="border-y border-rule bg-paper">
         <Container className="py-10">
           <Reveal>
@@ -191,7 +192,7 @@ export default function Home() {
                 What clients <em className="font-normal">say</em>
               </>
             }
-            subtitle="How MJW has helped local businesses stay on top of their finances."
+            subtitle="How MJW has helped businesses stay on top of their finances."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (

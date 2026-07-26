@@ -9,7 +9,7 @@ import { services } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Bookkeeping, tax preparation, payroll, financial reporting, accounts payable and receivable, and business advisory for small businesses in Cebu.",
+    "Bookkeeping, tax preparation, payroll, financial reporting, accounts payable and receivable, and business advisory for small businesses worldwide.",
 };
 
 export default function ServicesPage() {

@@ -9,7 +9,7 @@ import { Clock, Mail, MapPin } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with MJW Bookkeeping and Accounting Services in Cebu, Philippines.",
+    "Get in touch with MJW Bookkeeping and Accounting Services — based in Cebu, Philippines, serving clients worldwide.",
 };
 
 const CONTACT_DETAILS = [

@@ -46,10 +46,10 @@ export const services: Service[] = [
     shortDescription:
       "Accurate, on-time tax filing that keeps you compliant and stress-free.",
     longDescription:
-      "We prepare and file your business and personal taxes accurately and on time, so you avoid penalties and stay fully compliant with BIR requirements. We also provide year-round guidance so tax season never catches you off guard.",
+      "We prepare and file your business and personal taxes accurately and on time, so you avoid penalties and stay fully compliant with your tax authority's requirements. We also provide year-round guidance so tax season never catches you off guard.",
     bullets: [
       "Income tax return preparation",
-      "BIR compliance & filing",
+      "Tax compliance & filing",
       "Tax planning & advice",
       "Year-round tax support",
     ],
@@ -62,11 +62,11 @@ export const services: Service[] = [
     shortDescription:
       "Accurate, on-time payroll so your team gets paid right, every time.",
     longDescription:
-      "We manage payroll computation, statutory deductions, and government remittances so your employees are paid correctly and on time, every pay period — and your business stays compliant with SSS, PhilHealth, and Pag-IBIG requirements.",
+      "We manage payroll computation, statutory deductions, and government remittances so your employees are paid correctly and on time, every pay period — and your business stays compliant with statutory contribution and remittance requirements.",
     bullets: [
       "Payroll computation & processing",
-      "SSS, PhilHealth & Pag-IBIG remittances",
-      "13th month pay & government reporting",
+      "Statutory contributions & remittances",
+      "Government reporting & year-end payroll",
       "Payslip generation",
     ],
   },
